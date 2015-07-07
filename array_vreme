@@ -1,0 +1,6 @@
+<?php
+$vreme = array ("rain","sunshine","clouds","hail","sleet","snow","wind");
+echo "We ve seen all kinds of weather this month";
+echo "At the beginning of the month, we had $vreme[5]";
+
+?>
