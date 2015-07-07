@@ -28,6 +28,7 @@
 $arrayA = array("1", "8", "12", "7", "11", "5", "1", "12");
 $arrayB = array("13", "17", "49", "12", "1", "11");
 $arrayC = array();
+$arrayD = array();
 
 
 $countA = count($arrayA);
