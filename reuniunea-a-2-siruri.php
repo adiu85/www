@@ -34,7 +34,7 @@ $arrayF=array();
 $countA = count($arrayA);
 $countB = count($arrayB);
 
-
+//comment nou
 for ($i = 0; $i < $countA - 1; $i++) {
     $countC = count($arrayC);
     $foundInC = false;
