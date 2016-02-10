@@ -1,0 +1,9 @@
+<HTML>
+<HEAD>>
+<BODY>>
+<?php
+phpinfo();
+?>
+</BODY>
+</HEAD>
+</HTML>
