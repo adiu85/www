@@ -1,0 +1,119 @@
+<?php
+require_once __DIR__ . '/../data.php';
+require_once __DIR__ . '/../../composer/vendor/autoload.php';
+
+if ($_FILES['fisier_pdf']['tmp_name'] != '') {
+
+    if (preg_match("/WIN/i", PHP_OS)) {
+        $delim = "\\";
+    } else {
+        $delim = "/";
+    }
+
+    $uploadDir = getcwd() . "{$delim}temp";
+    $system_query1 = "chmod 0777 " . $uploadDir . $delim . "dunlop.pdf";
+    system($system_query1);
+
+    fopen($uploadDir . $delim . "dunlop.pdf", "w");
+
+    $moved = move_uploaded_file($_FILES['fisier_pdf']['tmp_name'], $uploadDir . $delim . "dunlop.pdf");
+
+    // Parse pdf file and build necessary objects.
+    $parser = new \Smalot\PdfParser\Parser();
+    $pdf = $parser->parseFile($uploadDir . "/dunlop.pdf");
+
+    // Retrieve all pages from the pdf file.
+    $pages = $pdf->getPages();
+
+    // Retrieve first page
+    $firstPage = $pages[0]->getText();
+
+    // invoice nr
+    preg_match('/(?:Fattura)(\d+)/', $firstPage, $invoiceNo);
+    $invoiceNo = $invoiceNo[1];
+
+    //invoice date
+    preg_match('/^(\d{2}\.\d{2}\.\d{4})/m', $firstPage, $date);
+    $date = $date[1];
+
+    //calculates the invoice_date;  due_date
+    $date = explode(".", $date);
+    $dueDate = date("d.m.Y", mktime(0, 0, 0, $date[1], $date[0] + 30, $date[2]));
+    $date = "$date[0].$date[1].$date[2]";
+
+    $output = "invoice_no;advice_no;invoice_date;due_date;order_no;product_code;product_desc;quantity;product_price;value;shipping\n";
+
+    // Loop over each page to extract text.
+    foreach ($pages as $page) {
+
+        $pageContent = $page->getText();
+
+        if (strpos($pageContent, 'Nota di credito') !== false) {
+            break;
+        }
+
+        preg_match_all('/(Ns.Ordine.*)(?:Classe)/sU', $pageContent, $record);
+
+
+        foreach ($record as $articles) {
+
+            foreach ($articles as $article) {
+
+                preg_replace('/(Nota\s+di.*)^(?:Pagina)/smU', "***!!!", $article);
+
+                //order number
+                preg_match('/(?:RD)(\d+)(?:\s+del)/', $article, $orderNo);
+                $orderNo = $orderNo[1];
+
+                //quantity
+                preg_match_all('/(\d{1,2})(?:\s+PZ)/', $article, $quantity);
+                $quantity = $quantity[1][0];
+
+                //unit price
+                preg_match('/(?:PZ\s+)(\d{1,}\,\d{2})/', $article, $unitPrice);
+                $unitPrice = $unitPrice[1];
+
+                //value
+                preg_match('/(?:\d+\,\d{2}\s+)(\d+\,\d{2})|(\d+\.\d+\,\d{2})/', $article, $value);
+                $value = $value[1];
+                $output .= $invoiceNo . ";" . ";" . $date . ";" . $dueDate . ";" . $orderNo . ";" . ";" . ";" . $quantity . ";" . $unitPrice . ";" . $value . ";" . ";" . "\n";
+            }
+        }
+    }
+
+    exec("rm -f -r " . $uploadDir . "/dunlop.pdf");
+
+    header("Content-type: application/cvs");
+    header("Content-disposition:attachment; filename=dunlop" . date("Y-m-d") . ".csv");
+    echo $output;
+    die();
+}
+
+?>
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="eb_css.css">
+
+    <title>Dunlop Goodyear IT</title>
+</head>
+<body>
+
+<form name=FF enctype="multipart/form-data" method=POST action="<?php echo $_SERVER[PHP_SELF]; ?>">
+    <?php
+    include("eb_links.php");
+    writeTableLinks($_SERVER[PHP_SELF]);
+    ?>
+    <table class="krupp">
+        <tr>
+            <td colspan=2>Goodyear DunlopIT</td>
+
+        </tr>
+        <tr>
+            <td><input type="file" name="fisier_pdf"></td>
+            <td><input type="submit" name="convert" value="convert"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
