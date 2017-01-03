@@ -1,22 +1,14 @@
 <?php
 /**
- * 1. ex5.php sa se refaca cu for functia;
- sa se faca o functie care primeste un numar si care returneaza suma tuturor numerelor pana la acel numar, in ordine naturala.;
-
-
-
-
+ * 1. ex5.php sa se refaca cu for functia;.
  **/
-
 $numar = 10;
 
-
-
-for ($i=1;$i<$numar;$i++) {
+for ($i = 1; $i < $numar; $i++) {
     $suma = $i + 1;
 }
 
-echo "suma";
+echo 'suma';
 echo "\n";
 
 ?>
@@ -48,7 +40,7 @@ $nrCuCifra = 0;
 $nrCautat = 5;
 
 while ($nrCuCifra <= 1000) {
-    $contor++;/*
+    $contor++; /*
     if ($contor % 10 == 5) {
         print $contor . "\n";
         $nrCuCifra++;
@@ -58,7 +50,7 @@ while ($nrCuCifra <= 1000) {
         $nrCuCifra++;
 */
     if ($contor % 10 == 5) {
-        print $contor . " contine cifra"."\n";
+        echo $contor.' contine cifra'."\n";
         $nrCuCifra++;
     }
 }

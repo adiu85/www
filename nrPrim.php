@@ -1,6 +1,6 @@
 <?php
 /**
- * sa se creeaze o fuctie care verifica daca un numar este prim sau nu
+ * sa se creeaze o fuctie care verifica daca un numar este prim sau nu.
  *
  *
  * un numar este pr:im daca se imparte (fara rest) doar la el si la 1.
@@ -11,8 +11,6 @@
  * ----blocat - daca if verifica mai multe rezultate
  * later edit : pare sa fie rezolvat
  */
-
-
 $prim = false;
 function CheckIfPrime($nr_de_verificat)
 {
@@ -26,10 +24,9 @@ function CheckIfPrime($nr_de_verificat)
     }
     var_dump($prim);
     if ($prim == true) {
-        echo "numarul NU e prim";
+        echo 'numarul NU e prim';
     } else {
-        echo "numarul " . $nr_de_verificat . " ESTE PRIM";
+        echo 'numarul '.$nr_de_verificat.' ESTE PRIM';
     }
 }
 CheckIfPrime(4);
-?>

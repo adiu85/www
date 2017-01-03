@@ -20,19 +20,17 @@
  *
  */
 
-$a = "elefaccafele";
+$a = 'elefaccafele';
 $a_str = str_split($a);
 $a_count = count($a_str);
 
-$a_reverse="";
+$a_reverse = '';
 
-for($i=$a_count-1;$i>=0;$i--){
-    $a_reverse.=$a_str[$i];
+for ($i = $a_count - 1; $i >= 0; $i--) {
+    $a_reverse .= $a_str[$i];
 }
-if($a==$a_reverse) {
-    echo "este palindrom";
+if ($a == $a_reverse) {
+    echo 'este palindrom';
+} else {
+    echo 'NU este';
 }
-else{
-    echo "NU este";
-}
-?>

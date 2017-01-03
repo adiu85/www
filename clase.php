@@ -4,7 +4,7 @@
  * Created by PhpStorm.
  * User: adi
  * Date: 5/26/2015
- * Time: 6:08 PM
+ * Time: 6:08 PM.
  *
  * Citeste de pe net despre:
  * - mostenire intre 2 clase
@@ -19,18 +19,16 @@
  *  -niste clase care mostenesc  1,2 clase;
  *  -implementare de interfete
  *  -o clasa abstracta
- *
- *
  */
 class Scolar
 {
-
     private $nume;
     private static $adresa;
 
-    public function __construct($nume, $adresa){
+    public function __construct($nume, $adresa)
+    {
         $this->nume = $nume;
-        self::$adresa= $adresa;
+        self::$adresa = $adresa;
         //print "sunt un constructor bun!"."\n";
     }
 
@@ -45,17 +43,17 @@ class Scolar
         return self::$adresa;
     }
 
-    public function returnAddress(){
-        $ora=19;
+    public function returnAddress()
+    {
+        $ora = 19;
+
         return $this->getAdresa();
     }
 }
 
-$primulConcurent = new Scolar("Seba", "Adresa lui seba");
-$aldoileConcurent = new Scolar("adi","adresa lui adi");
-$altreileaConcurent = new Scolar("ionel","adresa lui ionel");
+$primulConcurent = new Scolar('Seba', 'Adresa lui seba');
+$aldoileConcurent = new Scolar('adi', 'adresa lui adi');
+$altreileaConcurent = new Scolar('ionel', 'adresa lui ionel');
 
-
-print $primulConcurent->returnAddress();
-print $altreileaConcurent->returnAddress();
-
+echo $primulConcurent->returnAddress();
+echo $altreileaConcurent->returnAddress();

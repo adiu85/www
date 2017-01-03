@@ -1,11 +1,6 @@
 <?php
 /**
- * 1. ex5.php sa se refaca cu for functia;
-sa se faca o functie care primeste un numar si care returneaza suma tuturor numerelor pana la acel numar, in ordine naturala.;
-
-
-
-
+ * 1. ex5.php sa se refaca cu for functia;.
  **/
 
 /*$suma= 0;
@@ -21,20 +16,16 @@ for ($j=0;$j<=$numar;$j++) {
 
 */
 
-
-
-function suma ($numar) {
-    $s=0;
-    for ($j=0;$j<=$numar;$j++) {
-     $s+=$j;
-        print $s;
+function suma($numar)
+{
+    $s = 0;
+    for ($j = 0; $j <= $numar; $j++) {
+        $s += $j;
+        echo $s;
         echo "\n";
-
     }
 }
-suma (3);
-
-
+suma(3);
 
 ?>
 

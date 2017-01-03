@@ -3,18 +3,15 @@
  * Created by PhpStorm.
  * User: user
  * Date: 4/8/15
- * Time: 8:03 AM
+ * Time: 8:03 AM.
  *
  * sa se creeze o functie care primeste ca argumente doua arrayuri si returneaza intersectia lor.
- *
- *
  */
-$firstArray = array(5, 19, 4, 4, 4, 21, 47, 103, 4);
-$secondArray = array(2, 9, 47, 59, 4);
+$firstArray = [5, 19, 4, 4, 4, 21, 47, 103, 4];
+$secondArray = [2, 9, 47, 59, 4];
 
-
-
-function IsElementComune($firstArray,$secondArray) {
+function IsElementComune($firstArray, $secondArray)
+{
     foreach ($firstArray as $value) {
         foreach ($secondArray as $value2) {
             if ($value == $value2) {
@@ -28,12 +25,10 @@ function IsElementComune($firstArray,$secondArray) {
 
                 if ($flag == 0) {
                     $intersection[] = $value;
-
                 }
             }
         }
     }
-    print_r ($intersection);
+    print_r($intersection);
 }
-IsElementComune($firstArray,$secondArray);
-?>
+IsElementComune($firstArray, $secondArray);

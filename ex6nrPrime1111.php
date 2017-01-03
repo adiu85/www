@@ -1,4 +1,5 @@
 <?php
+
 // sa se realizeze un program care afiseaza primele 200 nr prime.
 
 // un nr prim este un nr care se divide doar la 1 si la el insusi. Primul nr prim este 2.
@@ -43,21 +44,16 @@ function isPrimeNumber($nr_dat)
     }
 }
 
-
 var_dump(isPrimeNumber(4));
 die();
-
-
 
 //var_dump(isPrimeNumber(120));
 $noOfPrimes = 0;
 while ($noOfPrimes < 200) {
     if (isPrimeNumber($nr_dat)) {
-        print $nr_dat;
-        print "\n";
+        echo $nr_dat;
+        echo "\n";
         $noOfPrimes++;
     }
     $nr_dat++;
 }
-
-?>

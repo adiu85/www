@@ -8,7 +8,6 @@
  * executa functie de verificare:
  * incepe de la 1 . Cand ai rezultat pozitiv : $nr_de_rezultate++
  */
-
 $nr_de_rezultate = 0;
 $prim = false;
 function isPrimeNumber($nr_de_verificat)
@@ -19,13 +18,13 @@ function isPrimeNumber($nr_de_verificat)
             return false;
         }
     }
+
     return true;
 }
 
 for ($nr_de_verificat = 2; $nr_de_rezultate <= 200; $nr_de_verificat++) {
     if (isPrimeNumber($nr_de_verificat)) {
-        print $nr_de_verificat."\n";
+        echo $nr_de_verificat."\n";
         $nr_de_rezultate++;
     }
 }
-?>

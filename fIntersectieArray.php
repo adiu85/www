@@ -7,13 +7,11 @@ c<?php
  * sa se faca o functie care primeste ca argumente doua arrayuri si returneaza intersectia celor doua arrayuri.
  *luam fiecare element din primul array si il comparam cu toate elementele din arrayul al doilea.
  * daca elementul din primul array se regaseste si in al doilea atunci il copiem in arrayul gol.
- *
- *
  */
-$firstArray = array(5, 19, 4, 4, 4, 21, 47, 103, 4);
-$secondArray = array(2, 9, 47, 59, 4);
+$firstArray = [5, 19, 4, 4, 4, 21, 47, 103, 4];
+$secondArray = [2, 9, 47, 59, 4];
 $flag = 0;
-$intersection = array();
+$intersection = [];
 
 foreach ($firstArray as $value) {
     foreach ($secondArray as $value2) {
@@ -29,8 +27,6 @@ foreach ($firstArray as $value) {
             if ($flag == 0) {
                 $intersection[] = $value;
             }
-
-
         }
     }
 }

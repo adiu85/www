@@ -14,21 +14,18 @@
 $contor = 0;
 $nrRezultate = 0;
 
-
 while ($nrRezultate <= 1000) {
     $contor++;
 
-    $testare = $contor;//folosim o alta variabila, care are aceeasi valoare cu contorul, pt a testa daca contine cifra 5.
+    $testare = $contor; //folosim o alta variabila, care are aceeasi valoare cu contorul, pt a testa daca contine cifra 5.
     //INTREBARI :
     while ($testare > 1) {
         if ($testare % 10 == 5) {
             $nrRezultate++;
-            print $contor . "\n";
+            echo $contor."\n";
             break;
-
         } else {
             $testare = $testare / 10;
         }
     }
 }
-?>
