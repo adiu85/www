@@ -6,22 +6,16 @@
  *
  *
  * ---> trebuie sa mai fac cu _POST , e nevoie de integrare cu forme html.
- *
  */
-
 $nrIntrodus = 5;
 $secretNr = 5;
-$incercari =0;
+$incercari = 0;
 if ($nrIntrodus > $secretNr) {
-    echo "numarul este prea mare";
+    echo 'numarul este prea mare';
     $incercari++;
 } elseif ($nrIntrodus < $secretNr) {
-    echo "numarul este prea mic";
+    echo 'numarul este prea mic';
     $incercari++;
-
-
 } else {
-    echo "ai ghicit numarul  ";
+    echo 'ai ghicit numarul  ';
 }
-
-?>

@@ -1,13 +1,10 @@
 <?php
 /**
- *
  * Sa se creeze o functie care inverseaza un array.
  *rezolvarea nu e buna!
 
  */
-
-$a = array("1", "2", "3", "9");
-
+$a = ['1', '2', '3', '9'];
 
 function isReverse($a)
 {
@@ -18,4 +15,3 @@ function isReverse($a)
     }
 }
 isReverse($a);
-?>

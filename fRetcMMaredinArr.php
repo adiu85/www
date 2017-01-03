@@ -7,17 +7,17 @@
   *
 
  */
-$a = array("2", "7", "3", "4", "1", "8","99", "5");
+$a = ['2', '7', '3', '4', '1', '8', '99', '5'];
 $a_count = count($a);
-$max=0;
+$max = 0;
 
-for ($i=0;$i<count($a)-1;$i++) {
-    if ($a[$i]>$max){
-    $max= $a[$i];
+for ($i = 0; $i < count($a) - 1; $i++) {
+    if ($a[$i] > $max) {
+        $max = $a[$i];
     }
-       }
+}
 
-print $max;
+echo $max;
 ?>
 
 

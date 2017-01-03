@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: adi
  * Date: 3/31/2015
- * Time: 7:03 PM
+ * Time: 7:03 PM.
  *
  * Sa se realizeze functie care primeste ca parametrii 2 array-uri si returneaza un array care contine reuniunea celor 2
  *
@@ -22,14 +22,11 @@
  * pt B:
  *  -daca elem exista atunci continuam la urmatorul element din B
  *  - daca elem nu exista atunci se adauga la capatul arraylui C
- *
  */
-
-$arrayA = array("1", "8", "12", "7", "11", "5", "1", "12");
-$arrayB = array("13", "17", "49", "12", "1", "11");
-$arrayC = array();
-$arrayF=array();
-
+$arrayA = ['1', '8', '12', '7', '11', '5', '1', '12'];
+$arrayB = ['13', '17', '49', '12', '1', '11'];
+$arrayC = [];
+$arrayF = [];
 
 $countA = count($arrayA);
 $countB = count($arrayB);
@@ -40,7 +37,7 @@ for ($i = 0; $i < $countA - 1; $i++) {
     $foundInC = false;
     //elem curent $arrayA[$i]
     for ($j = 0; $j < $countC; $j++) {
-        if ($arrayA[$i] == $arrayC[$j]){
+        if ($arrayA[$i] == $arrayC[$j]) {
             $foundInC = true;
             break;
         }
@@ -50,13 +47,12 @@ for ($i = 0; $i < $countA - 1; $i++) {
     }
 }
 
-
 for ($i = 0; $i < $countB - 1; $i++) {
     $countC = count($arrayC);
     $foundInC = false;
     //elem curent $arrayA[$i]
     for ($j = 0; $j < $countC; $j++) {
-        if ($arrayB[$i] == $arrayC[$j]){
+        if ($arrayB[$i] == $arrayC[$j]) {
             $foundInC = true;
             break;
         }
@@ -67,6 +63,3 @@ for ($i = 0; $i < $countB - 1; $i++) {
 }
 
 print_r($arrayC);
-
-
-

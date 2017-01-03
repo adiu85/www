@@ -1,4 +1,5 @@
 <?php
+
 $nr = 450;
 $x = 5;
 $rest = $nr % $x;
@@ -8,4 +9,3 @@ if ($rest == 0) {
 } else {
     echo "$nr nu este divizilbil la 5 sau 0";
 }
-?>
